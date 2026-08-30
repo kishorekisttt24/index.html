@@ -265,6 +265,89 @@
 
   document.getElementById('reelForm').addEventListener('submit', function(e){
     e.preventDefault();
+<script>
+  const STORAGE_KEY = 'ffk_fan_reels';
+
+  function getYouTubeId(url){
+    const patterns = [
+      /(?:youtube\.com\/shorts\/)([a-zA-Z0-9_-]{6,})/,
+      /(?:youtube\.com\/watch\?v=)([a-zA-Z0-9_-]{6,})/,
+      /(?:youtu\.be\/)([a-zA-Z0-9_-]{6,})/
+    ];
+    for (const p of patterns){
+      const m = url.match(p);
+      if (m) return m[1];
+    }
+    return null;
+  }
+
+  function detectPlatform(url){
+    if (/youtube\.com|youtu\.be/.test(url)) return 'youtube';
+    if (/instagram\.com/.test(url)) return 'instagram';
+    if (/tiktok\.com/.test(url)) return 'tiktok';
+    if (/facebook\.com|fb\.watch/.test(url)) return 'facebook';
+    return 'other';
+  }
+
+  function loadReels(){
+    try{
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : [];
+    }catch(e){ return []; }
+  }
+
+  function saveReels(reels){
+    try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(reels)); }catch(e){}
+  }
+
+  function platformIcon(p){
+    return { youtube:'▶', instagram:'📷', tiktok:'🎵', facebook:'👥', other:'🔗' }[p] || '🔗';
+  }
+  function platformLabel(p){
+    return { youtube:'YouTube Shorts', instagram:'Instagram Reel', tiktok:'TikTok', facebook:'Facebook', other:'Watch Reel' }[p] || 'Watch Reel';
+  }
+
+  function renderReels(){
+    const reels = loadReels();
+    const grid = document.getElementById('reelGrid');
+    const empty = document.getElementById('emptyState');
+    const count = document.getElementById('reelCount');
+    count.textContent = reels.length + (reels.length === 1 ? ' reel posted' : ' reels posted');
+    grid.innerHTML = '';
+
+    if (reels.length === 0){
+      empty.style.display = 'block';
+      grid.style.display = 'none';
+      return;
+    }
+    empty.style.display = 'none';
+    grid.style.display = 'grid';
+
+    reels.slice().reverse().forEach(reel => {
+      const card = document.createElement('div');
+      card.className = 'reel-card';
+
+      let mediaHtml = '';
+      if (reel.platform === 'youtube' && reel.ytId){
+        mediaHtml = `<iframe class="reel-embed" src="https://www.youtube.com/embed/${reel.ytId}" allowfullscreen loading="lazy"></iframe>`;
+      } else {
+        mediaHtml = `<a class="reel-link-card" href="${reel.url}" target="_blank" rel="noopener">
+            <span class="ico">${platformIcon(reel.platform)}</span>
+            <span class="lbl">${platformLabel(reel.platform)}</span>
+          </a>`;
+      }
+
+      card.innerHTML = mediaHtml + `
+        <div class="reel-meta">
+          <div class="reel-fan">${reel.name}</div>
+          <div class="reel-tag">${platformLabel(reel.platform)}</div>
+        </div>`;
+      grid.appendChild(card);
+    });
+  }
+
+  document.getElementById('reelForm').addEventListener('submit', function(e){
+    e.preventDefault();
     const nameInput = document.getElementById('fanName');
     const linkInput = document.getElementById('reelLink');
     const msg = document.getElementById('formMsg');
@@ -276,26 +359,276 @@
 
     if (!name || !url || !valid){
       msg.textContent = 'Sari illa da — name + correct link podunga!';
-      msg.className = 'form-msg show err';
-      return;
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import {
+    getFirestore,
+    collection,
+    addDoc,
+    getDocs,
+    query,
+    orderBy
+  } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyA45vDoKGI_DM-KJWKy6v5Q8ft3dekc62I",
+    authDomain: "ffkfanreels.firebaseapp.com",
+    projectId: "ffkfanreels",
+    storageBucket: "ffkfanreels.firebasestorage.app",
+    messagingSenderId: "325472037265",
+    appId: "1:325472037265:web:afdaae5f6e9f6e4dc85230",
+    measurementId: "G-WQDB1XZB1J"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  function getYouTubeId(url) {
+    const patterns = [
+      /youtube\.com\/shorts\/([a-zA-Z0-9_-]{6,})/,
+      /youtube\.com\/watch\?v=([a-zA-Z0-9_-]{6,})/,
+      /youtu\.be\/([a-zA-Z0-9_-]{6,})/
+    ];
+
+    for (const pattern of patterns) {
+      const match = url.match(pattern);
+      if (match) return match[1];
     }
 
-    const platform = detectPlatform(url);
-    const ytId = platform === 'youtube' ? getYouTubeId(url) : null;
+    return null;
+  }
 
-    const reels = loadReels();
-    reels.push({ name, url, platform, ytId, ts: Date.now() });
-    saveReels(reels);
+  function detectPlatform(url) {
+    if (/youtube\.com|youtu\.be/i.test(url)) return "youtube";
+    if (/instagram\.com/i.test(url)) return "instagram";
+    if (/tiktok\.com/i.test(url)) return "tiktok";
+    if (/facebook\.com|fb\.watch/i.test(url)) return "facebook";
+    return "other";
+  }
 
-    msg.textContent = 'Posted! Un reel wall la vandhachu 🔥';
-    msg.className = 'form-msg show ok';
-    nameInput.value = '';
-    linkInput.value = '';
-    renderReels();
-    document.getElementById('wall').scrollIntoView({behavior:'smooth', block:'start'});
-  });
+  function platformIcon(platform) {
+    return {
+      youtube: "▶",
+      instagram: "📷",
+      tiktok: "🎵",
+      facebook: "👥",
+      other: "🔗"
+    }[platform] || "🔗";
+  }
 
-  renderReels();
+  function platformLabel(platform) {
+    return {
+      youtube: "YouTube Shorts",
+      instagram: "Instagram Reel",
+      tiktok: "TikTok",
+      facebook: "Facebook",
+      other: "Watch Reel"
+    }[platform] || "Watch Reel";
+  }
+
+  function escapeHTML(text) {
+    const div = document.createElement("div");
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  async function loadReels() {
+    const grid = document.getElementById("reelGrid");
+    const empty = document.getElementById("emptyState");
+    const count = document.getElementById("reelCount");
+
+    try {
+      const reelsQuery = query(
+        collection(db, "reels"),
+        orderBy("createdAt", "desc")
+      );
+
+      const snapshot = await getDocs(reelsQuery);
+      const reels = [];
+
+      snapshot.forEach((doc) => {
+        const data = doc.data();
+
+        // Ignore the temporary test document
+        if (data.name === "test" && data.link === "https://example.com") {
+          return;
+        }
+
+        reels.push({
+          id: doc.id,
+          name: data.name || "FFK Fan",
+          url: data.link || "",
+          platform: data.platform || detectPlatform(data.link || ""),
+          ytId: data.ytId || null
+        });
+      });
+
+      count.textContent =
+        reels.length +
+        (reels.length === 1 ? " reel posted" : " reels posted");
+
+      grid.innerHTML = "";
+
+      if (reels.length === 0) {
+        empty.style.display = "block";
+        grid.style.display = "none";
+        return;
+      }
+
+      empty.style.display = "none";
+      grid.style.display = "grid";
+
+      reels.forEach((reel) => {
+        const card = document.createElement("div");
+        card.className = "reel-card";
+
+        let mediaHTML = "";
+
+        if (reel.platform === "youtube" && reel.ytId) {
+          mediaHTML = `
+            <iframe
+              class="reel-embed"
+              src="https://www.youtube.com/embed/${encodeURIComponent(reel.ytId)}"
+              allowfullscreen
+              loading="lazy">
+            </iframe>
+          `;
+        } else {
+          mediaHTML = `
+            <a
+              class="reel-link-card"
+              href="${escapeHTML(reel.url)}"
+              target="_blank"
+              rel="noopener noreferrer">
+              <span class="ico">${platformIcon(reel.platform)}</span>
+              <span class="lbl">${platformLabel(reel.platform)}</span>
+            </a>
+          `;
+        }
+
+        card.innerHTML =
+          mediaHTML +
+          `
+          <div class="reel-meta">
+            <div class="reel-fan">${escapeHTML(reel.name)}</div>
+            <div class="reel-tag">${platformLabel(reel.platform)}</div>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+
+    } catch (error) {
+      console.error(error);
+      count.textContent = "Unable to load reels";
+      empty.style.display = "block";
+      empty.innerHTML = `
+        Could not load reels.
+        <span class="tamil">
+          Firebase connection check pannunga.
+        </span>
+      `;
+    }
+  }
+
+  document
+    .getElementById("reelForm")
+    .addEventListener("submit", async function (e) {
+
+      e.preventDefault();
+
+      const nameInput = document.getElementById("fanName");
+      const linkInput = document.getElementById("reelLink");
+      const msg = document.getElementById("formMsg");
+      const button = document.querySelector(".submit-btn");
+
+      const name = nameInput.value.trim();
+      const url = linkInput.value.trim();
+
+      let validURL = true;
+
+      try {
+        new URL(url);
+      } catch {
+        validURL = false;
+      }
+
+      if (!name || !url || !validURL) {
+        msg.textContent =
+          "Sari illa da — name + correct link podunga!";
+        msg.className = "form-msg show err";
+        return;
+      }
+
+      const platform = detectPlatform(url);
+
+      if (
+        platform === "other"
+      ) {
+        msg.textContent =
+          "YouTube / Instagram reel link mattum podunga!";
+        msg.className = "form-msg show err";
+        return;
+      }
+
+      const ytId =
+        platform === "youtube"
+          ? getYouTubeId(url)
+          : null;
+
+      if (platform === "youtube" && !ytId) {
+        msg.textContent =
+          "Correct YouTube Shorts link podunga!";
+        msg.className = "form-msg show err";
+        return;
+      }
+
+      button.disabled = true;
+      button.textContent = "POSTING... 🔥";
+
+      try {
+
+        await addDoc(collection(db, "reels"), {
+          name: name,
+          link: url,
+          platform: platform,
+          ytId: ytId,
+          createdAt: new Date()
+        });
+
+        msg.textContent =
+          "Posted! Un reel wall la vandhachu 🔥";
+        msg.className = "form-msg show ok";
+
+        nameInput.value = "";
+        linkInput.value = "";
+
+        await loadReels();
+
+        document
+          .getElementById("wall")
+          .scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+
+      } catch (error) {
+
+        console.error(error);
+
+        msg.textContent =
+          "Post panna mudiyala. Firebase rules check pannunga!";
+        msg.className = "form-msg show err";
+
+      } finally {
+
+        button.disabled = false;
+        button.textContent = "Post to the Wall 🔥";
+
+      }
+    });
+
+  loadReels();
 </script>
 </body>
   </html>
