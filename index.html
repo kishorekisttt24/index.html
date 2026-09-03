@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ta">
+
 <head>
+
 <meta charset="UTF-8">
 
 <meta name="google-site-verification" content="mrbEhMXgczbruPu-Fu6GEj-xh8b7zGqPOqKgOdq3YN0" />
@@ -16,15 +18,15 @@
 <style>
 
 :root{
-  --bg:#050505;
-  --bg-panel:#100707;
-  --line:#3A1111;
-  --fire:#FF0000;
-  --gold:#FF3333;
-  --danger:#FF1744;
-  --text:#FFFFFF;
-  --text-dim:#AAAAAA;
-  --safe-zone:#FF2222;
+  --bg:#0A0D12;
+  --bg-panel:#12161F;
+  --line:#232A38;
+  --fire:#FF5A1F;
+  --gold:#FFC93C;
+  --danger:#E63946;
+  --text:#EDEFF4;
+  --text-dim:#8B93A7;
+  --safe-zone:#3AA6FF;
 }
 
 *{
@@ -41,20 +43,15 @@ body{
   background:
     radial-gradient(
       ellipse 900px 500px at 50% -10%,
-      rgba(255,0,0,0.30),
+      rgba(255,90,31,0.16),
       transparent 60%
     ),
     radial-gradient(
       ellipse 700px 500px at 100% 20%,
-      rgba(255,0,0,0.14),
+      rgba(58,166,255,0.07),
       transparent 60%
     ),
-    radial-gradient(
-      ellipse 700px 500px at 0% 80%,
-      rgba(255,0,0,0.10),
-      transparent 60%
-    ),
-    #050505;
+    var(--bg);
 
   color:var(--text);
   font-family:'Inter',sans-serif;
@@ -64,7 +61,7 @@ body{
 
 ::selection{
   background:var(--fire);
-  color:#FFFFFF;
+  color:#0A0D12;
 }
 
 .tamil{
@@ -76,7 +73,7 @@ a{
 }
 
 
-/* ================= NAVBAR ================= */
+/* NAVBAR */
 
 nav{
   position:sticky;
@@ -89,14 +86,11 @@ nav{
 
   padding:14px 22px;
 
-  background:rgba(5,5,5,0.88);
+  background:rgba(10,13,18,0.85);
+
   backdrop-filter:blur(10px);
 
   border-bottom:1px solid var(--line);
-
-  box-shadow:
-    0 0 25px rgba(255,0,0,0.18),
-    0 4px 30px rgba(255,0,0,0.08);
 }
 
 .logo{
@@ -105,21 +99,19 @@ nav{
   font-size:22px;
   letter-spacing:0.03em;
 
-  background:linear-gradient(
-    90deg,
-    #FFFFFF,
-    var(--fire),
-    var(--gold)
-  );
+  background:
+    linear-gradient(
+      90deg,
+      var(--gold),
+      var(--fire)
+    );
 
   -webkit-background-clip:text;
   background-clip:text;
+
   color:transparent;
 
   text-transform:uppercase;
-
-  filter:
-    drop-shadow(0 0 8px rgba(255,0,0,0.35));
 }
 
 .nav-links{
@@ -127,6 +119,7 @@ nav{
   gap:4px;
 
   font-family:'JetBrains Mono',monospace;
+
   font-size:11px;
 }
 
@@ -140,25 +133,18 @@ nav{
   border-radius:4px;
 
   text-transform:uppercase;
-  letter-spacing:0.06em;
 
-  transition:
-    color 0.2s,
-    background 0.2s,
-    box-shadow 0.2s;
+  letter-spacing:0.06em;
 }
 
 .nav-links a:hover{
-  color:#FFFFFF;
+  color:var(--text);
 
-  background:rgba(255,0,0,0.12);
-
-  box-shadow:
-    0 0 12px rgba(255,0,0,0.15);
+  background:rgba(255,90,31,0.1);
 }
 
 
-/* ================= MAIN ================= */
+/* MAIN */
 
 .wrap{
   max-width:820px;
@@ -171,7 +157,7 @@ section{
 }
 
 
-/* ================= HUD CORNERS ================= */
+/* HUD */
 
 .hud-corner{
   position:fixed;
@@ -183,14 +169,11 @@ section{
 
   pointer-events:none;
 
-  border-color:rgba(255,0,0,0.65);
+  border-color:rgba(255,90,31,0.5);
 
   border-style:solid;
 
   border-width:0;
-
-  filter:
-    drop-shadow(0 0 5px rgba(255,0,0,0.5));
 }
 
 .hud-corner.tl{
@@ -226,23 +209,18 @@ section{
 }
 
 
-/* ================= HERO ================= */
+/* HERO */
 
 .hero{
   position:relative;
 
-  border:1px solid #3A1111;
+  border:1px solid var(--line);
 
   background:
-    radial-gradient(
-      circle at 50% 0%,
-      rgba(255,0,0,0.22),
-      transparent 55%
-    ),
     linear-gradient(
       180deg,
-      #180909,
-      #080808
+      #171C26,
+      #0F131B
     );
 
   border-radius:6px;
@@ -252,12 +230,10 @@ section{
   overflow:hidden;
 
   animation:
-    dropIn 0.7s cubic-bezier(.2,.9,.25,1) both;
-
-  box-shadow:
-    0 0 20px rgba(255,0,0,0.18),
-    0 0 50px rgba(255,0,0,0.10),
-    inset 0 0 30px rgba(255,0,0,0.05);
+    dropIn
+    0.7s
+    cubic-bezier(.2,.9,.25,1)
+    both;
 }
 
 @keyframes dropIn{
@@ -284,43 +260,19 @@ section{
   background:
     repeating-linear-gradient(
       115deg,
-      rgba(255,0,0,0.06) 0 2px,
+      rgba(255,90,31,0.05) 0 2px,
       transparent 2px 26px
     );
 
   pointer-events:none;
 }
 
-.hero::after{
-  content:"";
 
-  position:absolute;
-
-  width:220px;
-  height:220px;
-
-  top:-110px;
-  left:50%;
-
-  transform:translateX(-50%);
-
-  background:rgba(255,0,0,0.18);
-
-  filter:blur(70px);
-
-  border-radius:50%;
-
-  pointer-events:none;
-}
-
-
-/* ================= HERO TEXT ================= */
+/* HERO TEXT */
 
 .eyebrow{
-  position:relative;
-  z-index:2;
-
   display:flex;
+
   align-items:center;
 
   gap:8px;
@@ -331,7 +283,7 @@ section{
 
   letter-spacing:0.14em;
 
-  color:#FF4444;
+  color:var(--gold);
 
   text-transform:uppercase;
 
@@ -344,40 +296,31 @@ section{
 
   border-radius:50%;
 
-  background:#FF0000;
+  background:var(--gold);
 
   box-shadow:
-    0 0 8px #FF0000,
-    0 0 18px rgba(255,0,0,0.8);
+    0 0 10px var(--gold);
 
   animation:
-    pulse 1.6s infinite ease-in-out;
+    pulse
+    1.6s
+    infinite
+    ease-in-out;
 }
 
 @keyframes pulse{
 
   0%,100%{
     opacity:1;
-
-    box-shadow:
-      0 0 8px #FF0000,
-      0 0 18px rgba(255,0,0,0.8);
   }
 
   50%{
     opacity:0.35;
-
-    box-shadow:
-      0 0 3px #FF0000,
-      0 0 8px rgba(255,0,0,0.4);
   }
 
 }
 
 .hero-title{
-  position:relative;
-  z-index:2;
-
   font-family:'Teko',sans-serif;
 
   font-weight:700;
@@ -391,27 +334,21 @@ section{
   background:
     linear-gradient(
       90deg,
-      #FFFFFF,
-      #FF4D4D,
-      #FF0000
+      var(--gold),
+      var(--fire)
     );
 
   -webkit-background-clip:text;
+
   background-clip:text;
 
   color:transparent;
-
-  filter:
-    drop-shadow(0 0 10px rgba(255,0,0,0.25));
 }
 
 .hero-sub{
-  position:relative;
-  z-index:2;
-
   font-size:14px;
 
-  color:#BBBBBB;
+  color:var(--text-dim);
 
   margin-top:10px;
 
@@ -419,10 +356,11 @@ section{
 }
 
 
-/* ================= SECTION DIVIDER ================= */
+/* SECTION */
 
 .zone-divider{
   display:flex;
+
   align-items:center;
 
   gap:14px;
@@ -441,8 +379,7 @@ section{
   flex-shrink:0;
 
   box-shadow:
-    0 0 0 4px rgba(255,0,0,0.08),
-    0 0 12px rgba(255,0,0,0.45);
+    0 0 0 4px rgba(58,166,255,0.08);
 }
 
 .zone-divider .rule{
@@ -486,31 +423,19 @@ h2.section-title{
   color:var(--text);
 
   margin-bottom:10px;
-
-  text-shadow:
-    0 0 12px rgba(255,0,0,0.25);
 }
 
 
-/* ================= SUBMIT FORM ================= */
+/* SUBMIT */
 
 .submit-card{
   border:1px solid var(--line);
 
-  background:
-    linear-gradient(
-      145deg,
-      #150909,
-      #0D0808
-    );
+  background:var(--bg-panel);
 
   border-radius:6px;
 
   padding:20px;
-
-  box-shadow:
-    0 0 25px rgba(255,0,0,0.08),
-    inset 0 0 20px rgba(255,0,0,0.03);
 }
 
 .form-row{
@@ -536,7 +461,8 @@ h2.section-title{
 }
 
 .form-row input{
-  background:#080808;
+
+  background:#0D1017;
 
   border:1px solid var(--line);
 
@@ -553,18 +479,15 @@ h2.section-title{
   outline:none;
 
   transition:
-    border-color 0.15s,
-    box-shadow 0.15s;
+    border-color 0.15s;
 }
 
 .form-row input:focus{
   border-color:var(--fire);
-
-  box-shadow:
-    0 0 12px rgba(255,0,0,0.18);
 }
 
 .submit-btn{
+
   font-family:'JetBrains Mono',monospace;
 
   font-size:12px;
@@ -576,11 +499,11 @@ h2.section-title{
   background:
     linear-gradient(
       90deg,
-      #FF0000,
-      #FF3333
+      var(--fire),
+      var(--gold)
     );
 
-  color:#FFFFFF;
+  color:#0A0D12;
 
   font-weight:600;
 
@@ -600,14 +523,15 @@ h2.section-title{
 }
 
 .submit-btn:hover{
+
   transform:translateY(-1px);
 
   box-shadow:
-    0 6px 18px rgba(255,0,0,0.35),
-    0 0 25px rgba(255,0,0,0.15);
+    0 6px 18px rgba(255,90,31,0.3);
 }
 
 .form-note{
+
   margin-top:10px;
 
   font-size:11.5px;
@@ -620,6 +544,7 @@ h2.section-title{
 }
 
 .form-msg{
+
   margin-top:10px;
 
   font-size:12.5px;
@@ -634,7 +559,7 @@ h2.section-title{
 }
 
 .form-msg.ok{
-  color:#FF5555;
+  color:var(--gold);
 }
 
 .form-msg.err{
@@ -642,9 +567,10 @@ h2.section-title{
 }
 
 
-/* ================= REELS ================= */
+/* REELS */
 
 .reel-count{
+
   font-family:'JetBrains Mono',monospace;
 
   font-size:11px;
@@ -655,9 +581,11 @@ h2.section-title{
 }
 
 .reel-grid{
+
   display:grid;
 
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:
+    1fr 1fr;
 
   gap:12px;
 }
@@ -671,24 +599,18 @@ h2.section-title{
 }
 
 .reel-card{
+
   border:1px solid var(--line);
 
-  background:
-    linear-gradient(
-      145deg,
-      #150909,
-      #0D0808
-    );
+  background:var(--bg-panel);
 
   border-radius:6px;
 
   overflow:hidden;
-
-  box-shadow:
-    0 0 18px rgba(255,0,0,0.06);
 }
 
 .reel-embed{
+
   width:100%;
 
   aspect-ratio:9/16;
@@ -701,6 +623,7 @@ h2.section-title{
 }
 
 .reel-link-card{
+
   display:flex;
 
   flex-direction:column;
@@ -722,19 +645,17 @@ h2.section-title{
   background:
     linear-gradient(
       135deg,
-      #200909,
-      #100707
+      #1C222E,
+      #12161F
     );
 }
 
 .reel-link-card .ico{
   font-size:26px;
-
-  filter:
-    drop-shadow(0 0 8px rgba(255,0,0,0.4));
 }
 
 .reel-link-card .lbl{
+
   font-family:'JetBrains Mono',monospace;
 
   font-size:11px;
@@ -745,12 +666,14 @@ h2.section-title{
 }
 
 .reel-meta{
+
   padding:10px 12px;
 
   border-top:1px solid var(--line);
 }
 
 .reel-fan{
+
   font-size:13px;
 
   font-weight:600;
@@ -759,6 +682,7 @@ h2.section-title{
 }
 
 .reel-tag{
+
   font-family:'JetBrains Mono',monospace;
 
   font-size:10px;
@@ -771,6 +695,7 @@ h2.section-title{
 }
 
 .empty-state{
+
   border:1px dashed var(--line);
 
   border-radius:6px;
@@ -782,20 +707,20 @@ h2.section-title{
   color:var(--text-dim);
 
   font-size:13px;
-
-  background:rgba(255,0,0,0.02);
 }
 
 .empty-state .tamil{
+
   display:block;
 
   margin-top:4px;
 }
 
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 
 footer{
+
   margin-top:56px;
 
   text-align:center;
@@ -808,6 +733,7 @@ footer{
 }
 
 footer .display{
+
   font-family:'Teko',sans-serif;
 
   font-size:20px;
@@ -817,20 +743,24 @@ footer .display{
   letter-spacing:0.08em;
 
   text-transform:uppercase;
-
-  text-shadow:
-    0 0 10px rgba(255,0,0,0.25);
 }
 
 </style>
+
 </head>
+
 
 <body>
 
+
 <div class="hud-corner tl"></div>
+
 <div class="hud-corner tr"></div>
+
 <div class="hud-corner bl"></div>
+
 <div class="hud-corner br"></div>
+
 
 <nav>
 
@@ -839,178 +769,227 @@ footer .display{
   </div>
 
   <div class="nav-links">
-    <a href="#submit">Submit</a>
-    <a href="#wall">Wall</a>
+
+    <a href="#submit">
+      Submit
+    </a>
+
+    <a href="#wall">
+      Wall
+    </a>
+
   </div>
 
 </nav>
 
+
 <div class="wrap">
 
-  <section id="home">
 
-    <div class="hero">
+<section id="home">
 
-      <div class="eyebrow">
-        <span class="dot"></span>
-        FAN REELS · SUBMIT & WATCH
-      </div>
+  <div class="hero">
 
-      <div class="hero-title">
-        FFKFanReels
-      </div>
+    <div class="eyebrow">
 
-      <div class="hero-sub tamil">
-        Nee FFK Prasanth vilayadura reels editha?
-        Unga reel link-a submit pannunga —
-        ellame ஒரே wall la fans paakalam!
-      </div>
+      <span class="dot"></span>
+
+      FAN REELS · SUBMIT & WATCH
 
     </div>
 
-  </section>
 
+    <div class="hero-title">
 
-  <section id="submit">
+      FFKFanReels
 
-    <div class="zone-divider">
-      <div class="ring"></div>
-
-      <span class="zone-label">
-        Drop Your Reel
-      </span>
-
-      <div class="rule"></div>
     </div>
 
-    <h2 class="section-title">
-      Submit a Reel
-    </h2>
 
-    <div class="submit-card">
+    <div class="hero-sub tamil">
 
-      <form id="reelForm">
+      Nee FFK Prasanth vilayadura reels editha?
+      Unga reel link-a submit pannunga —
+      ellame ஒரே wall la fans paakalam!
 
-        <div class="form-row">
+    </div>
 
-          <label for="fanName">
-            Your Name
-          </label>
+  </div>
 
-          <input
-            type="text"
-            id="fanName"
-            placeholder="e.g. Arun_gamer"
-            required
-          >
-
-        </div>
+</section>
 
 
-        <div class="form-row">
 
-          <label for="reelLink">
-            Reel Link (YouTube Shorts / Instagram Reel)
-          </label>
+<section id="submit">
 
-          <input
-            type="url"
-            id="reelLink"
-            placeholder="https://youtube.com/shorts/... or instagram.com/reel/..."
-            required
-          >
+  <div class="zone-divider">
 
-        </div>
+    <div class="ring"></div>
+
+    <span class="zone-label">
+      Drop Your Reel
+    </span>
+
+    <div class="rule"></div>
+
+  </div>
 
 
-        <button
-          type="submit"
-          class="submit-btn"
+  <h2 class="section-title">
+    Submit a Reel
+  </h2>
+
+
+  <div class="submit-card">
+
+    <form id="reelForm">
+
+
+      <div class="form-row">
+
+        <label for="fanName">
+          Your Name
+        </label>
+
+        <input
+          type="text"
+          id="fanName"
+          placeholder="e.g. Arun_gamer"
+          required
         >
-          Post to the Wall 🔥
-        </button>
 
-        <div
-          id="formMsg"
-          class="form-msg"
-        ></div>
-
-      </form>
-
-
-      <div class="form-note tamil">
-        * Video file direct ah upload panna mudiyathu inga —
-        YouTube Shorts / Instagram Reel link paste pannunga,
-        adhu ipdiye wall la kaamikkum.
-        YouTube links direct ah play aagum,
-        Instagram links watch button ah open aagum.
       </div>
 
+
+
+      <div class="form-row">
+
+        <label for="reelLink">
+          Reel Link (YouTube Shorts / Instagram Reel)
+        </label>
+
+        <input
+          type="url"
+          id="reelLink"
+          placeholder="https://youtube.com/shorts/... or instagram.com/reel/..."
+          required
+        >
+
+      </div>
+
+
+
+      <button
+        type="submit"
+        class="submit-btn"
+      >
+
+        Post to the Wall 🔥
+
+      </button>
+
+
+      <div
+        id="formMsg"
+        class="form-msg"
+      ></div>
+
+
+    </form>
+
+
+    <div class="form-note tamil">
+
+      * Video file direct ah upload panna mudiyathu inga —
+      YouTube Shorts / Instagram Reel link paste pannunga,
+      adhu ipdiye wall la kaamikkum.
+      YouTube links direct ah play aagum,
+      Instagram links watch button ah open aagum.
+
     </div>
 
-  </section>
+  </div>
+
+</section>
 
 
-  <section id="wall">
 
-    <div class="zone-divider">
-
-      <div class="ring"></div>
-
-      <span class="zone-label">
-        The Wall
-      </span>
-
-      <div class="rule"></div>
-
-    </div>
-
-    <h2 class="section-title">
-      Fan Reels
-    </h2>
-
-    <div
-      class="reel-count"
-      id="reelCount"
-    >
-      0 reels posted
-    </div>
-
-    <div
-      class="reel-grid"
-      id="reelGrid"
-    ></div>
-
-    <div
-      class="empty-state"
-      id="emptyState"
-    >
-
-      No reels yet — be the first!
-
-      <span class="tamil">
-        Mele form la un reel link podunga,
-        ithu inga first ah varum 🔥
-      </span>
-
-    </div>
-
-  </section>
+<section id="wall">
 
 
-  <footer>
+  <div class="zone-divider">
 
-    <div class="display">
-      — Drop, Post, Repeat —
-    </div>
+    <div class="ring"></div>
 
-    <div style="margin-top:6px;">
-      Fan-made reels wall · FFK Prasanth Gaming
-    </div>
+    <span class="zone-label">
+      The Wall
+    </span>
 
-  </footer>
+    <div class="rule"></div>
+
+  </div>
+
+
+  <h2 class="section-title">
+    Fan Reels
+  </h2>
+
+
+  <div
+    class="reel-count"
+    id="reelCount"
+  >
+    0 reels posted
+  </div>
+
+
+  <div
+    class="reel-grid"
+    id="reelGrid"
+  ></div>
+
+
+  <div
+    class="empty-state"
+    id="emptyState"
+  >
+
+    No reels yet — be the first!
+
+    <span class="tamil">
+
+      Mele form la un reel link podunga,
+      ithu inga first ah varum 🔥
+
+    </span>
+
+  </div>
+
+
+</section>
+
+
+
+<footer>
+
+  <div class="display">
+
+    — Drop, Post, Repeat —
+
+  </div>
+
+
+  <div style="margin-top:6px;">
+
+    Fan-made reels wall · FFK Prasanth Gaming
+
+  </div>
+
+</footer>
+
 
 </div>
+
 
 
 <script>
@@ -1030,6 +1009,7 @@ function getYouTubeId(url){
 
   ];
 
+
   for(const p of patterns){
 
     const m = url.match(p);
@@ -1038,8 +1018,11 @@ function getYouTubeId(url){
 
   }
 
+
   return null;
+
 }
+
 
 
 function detectPlatform(url){
@@ -1057,7 +1040,9 @@ function detectPlatform(url){
     return 'facebook';
 
   return 'other';
+
 }
+
 
 
 function loadReels(){
@@ -1071,13 +1056,16 @@ function loadReels(){
       ? JSON.parse(raw)
       : [];
 
-  }catch(e){
+  }
+
+  catch(e){
 
     return [];
 
   }
 
 }
+
 
 
 function saveReels(reels){
@@ -1089,46 +1077,66 @@ function saveReels(reels){
       JSON.stringify(reels)
     );
 
-  }catch(e){}
+  }
+
+  catch(e){}
 
 }
+
 
 
 function platformIcon(p){
 
   return {
+
     youtube:'▶',
+
     instagram:'📷',
+
     tiktok:'🎵',
+
     facebook:'👥',
+
     other:'🔗'
+
   }[p] || '🔗';
 
 }
 
 
+
 function platformLabel(p){
 
   return {
+
     youtube:'YouTube Shorts',
+
     instagram:'Instagram Reel',
+
     tiktok:'TikTok',
+
     facebook:'Facebook',
+
     other:'Watch Reel'
+
   }[p] || 'Watch Reel';
 
 }
+
 
 
 function renderReels(){
 
   const reels = loadReels();
 
+
   const grid =
     document.getElementById('reelGrid');
 
+
   const empty =
     document.getElementById('emptyState');
+
 
   const count =
     document.getElementById('reelCount');
@@ -1136,9 +1144,11 @@ function renderReels(){
 
   count.textContent =
     reels.length +
-    (reels.length === 1
+    (
+      reels.length === 1
       ? ' reel posted'
-      : ' reels posted');
+      : ' reels posted'
+    );
 
 
   grid.innerHTML = '';
@@ -1160,57 +1170,72 @@ function renderReels(){
   grid.style.display = 'grid';
 
 
-  reels.slice().reverse().forEach(reel => {
-
-    const card =
-      document.createElement('div');
-
-    card.className = 'reel-card';
+  reels
+    .slice()
+    .reverse()
+    .forEach(reel => {
 
 
-    let mediaHtml = '';
+      const card =
+        document.createElement('div');
 
 
-    if(
-      reel.platform === 'youtube' &&
-      reel.ytId
-    ){
-
-      mediaHtml = `
-        <iframe
-          class="reel-embed"
-          src="https://www.youtube.com/embed/${reel.ytId}"
-          allowfullscreen
-          loading="lazy">
-        </iframe>
-      `;
-
-    }else{
-
-      mediaHtml = `
-        <a
-          class="reel-link-card"
-          href="${reel.url}"
-          target="_blank"
-          rel="noopener">
-
-          <span class="ico">
-            ${platformIcon(reel.platform)}
-          </span>
-
-          <span class="lbl">
-            ${platformLabel(reel.platform)}
-          </span>
-
-        </a>
-      `;
-
-    }
+      card.className =
+        'reel-card';
 
 
-    card.innerHTML =
-      mediaHtml +
-      `
+      let mediaHtml = '';
+
+
+      if(
+        reel.platform === 'youtube' &&
+        reel.ytId
+      ){
+
+        mediaHtml = `
+
+          <iframe
+            class="reel-embed"
+            src="https://www.youtube.com/embed/${reel.ytId}"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+
+        `;
+
+      }
+
+      else{
+
+        mediaHtml = `
+
+          <a
+            class="reel-link-card"
+            href="${reel.url}"
+            target="_blank"
+            rel="noopener">
+
+            <span class="ico">
+              ${platformIcon(reel.platform)}
+            </span>
+
+            <span class="lbl">
+              ${platformLabel(reel.platform)}
+            </span>
+
+          </a>
+
+        `;
+
+      }
+
+
+      card.innerHTML =
+
+        mediaHtml +
+
+        `
+
         <div class="reel-meta">
 
           <div class="reel-fan">
@@ -1222,14 +1247,16 @@ function renderReels(){
           </div>
 
         </div>
-      `;
+
+        `;
 
 
-    grid.appendChild(card);
+      grid.appendChild(card);
 
-  });
+    });
 
 }
+
 
 
 document
@@ -1244,8 +1271,10 @@ document
       const nameInput =
         document.getElementById('fanName');
 
+
       const linkInput =
         document.getElementById('reelLink');
+
 
       const msg =
         document.getElementById('formMsg');
@@ -1253,6 +1282,7 @@ document
 
       const name =
         nameInput.value.trim();
+
 
       const url =
         linkInput.value.trim();
@@ -1265,7 +1295,9 @@ document
 
         new URL(url);
 
-      }catch(e){
+      }
+
+      catch(e){
 
         valid = false;
 
@@ -1291,8 +1323,8 @@ document
 
       const ytId =
         platform === 'youtube'
-          ? getYouTubeId(url)
-          : null;
+        ? getYouTubeId(url)
+        : null;
 
 
       const reels =
@@ -1316,6 +1348,7 @@ document
       msg.textContent =
         'Posted! Un reel wall la vandhachu 🔥';
 
+
       msg.className =
         'form-msg show ok';
 
@@ -1331,8 +1364,11 @@ document
       document
         .getElementById('wall')
         .scrollIntoView({
+
           behavior:'smooth',
+
           block:'start'
+
         });
 
     }
@@ -1344,4 +1380,5 @@ renderReels();
 </script>
 
 </body>
+
   </html>
