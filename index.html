@@ -21,8 +21,8 @@
   --bg:#0A0D12;
   --bg-panel:#12161F;
   --line:#232A38;
-  --fire:#FF5A1F;
-  --gold:#FFC93C;
+  --fire:#FF0000;
+  --gold:#FF3333;
   --danger:#E63946;
   --text:#EDEFF4;
   --text-dim:#8B93A7;
@@ -229,15 +229,8 @@ section{
 
   overflow:hidden;
 
-  animation:
-    dropIn
-    0.7s
-    cubic-bezier(.2,.9,.25,1)
-    both;
-}
-
-@keyframes dropIn{
-
+  box-shadow: 0 0 25px rgba(255,0,0,0.35);
+ 
   from{
     opacity:0;
     transform:translateY(-18px);
