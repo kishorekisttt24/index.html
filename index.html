@@ -1,1371 +1,870 @@
 <!DOCTYPE html>
-<html lang="ta">
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FFK FAN REELS</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<meta charset="UTF-8">
-
-<meta name="google-site-verification" content="mrbEhMXgczbruPu-Fu6GEj-xh8b7zGqPOqKgOdq3YN0" />
+        body {
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>FFKFanReels — FFK Prasanth Fan Reels Wall</title>
+            color: white;
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+            background:
+                radial-gradient(circle at top, rgba(120, 0, 0, 0.35), transparent 35%),
+                radial-gradient(circle at bottom, rgba(80, 0, 0, 0.3), transparent 40%),
+                #050505;
 
-<link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+            overflow-x: hidden;
+        }
 
-<style>
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
 
-:root{
-  --bg:#0A0D12;
-  --bg-panel:#12161F;
-  --line:#232A38;
-  --fire:#FF0000;
-  --gold:#FF3333;
-  --danger:#E63946;
-  --text:#EDEFF4;
-  --text-dim:#8B93A7;
-  --safe-zone:#3AA6FF;
-}
+            background:
+                linear-gradient(
+                    135deg,
+                    transparent 0%,
+                    rgba(255, 0, 0, 0.04) 50%,
+                    transparent 100%
+                );
+
+            pointer-events: none;
+        }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+        .container {
+            width: 92%;
+            max-width: 900px;
+            margin: auto;
+            padding: 35px 0 60px;
+        }
+
+        /* MAIN TITLE */
+
+        .hero {
+            text-align: center;
+            padding: 40px 15px;
+            margin-bottom: 30px;
 
-html{
-  scroll-behavior:smooth;
-}
+            border: 1px solid rgba(255, 0, 0, 0.35);
+            border-radius: 25px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(70, 0, 0, 0.5),
+                    rgba(10, 10, 10, 0.85)
+                );
+
+            box-shadow:
+                0 0 20px rgba(255, 0, 0, 0.15),
+                inset 0 0 30px rgba(255, 0, 0, 0.04);
+        }
 
-body{
-  background:
-    radial-gradient(
-      ellipse 900px 500px at 50% -10%,
-      rgba(255,90,31,0.16),
-      transparent 60%
-    ),
-    radial-gradient(
-      ellipse 700px 500px at 100% 20%,
-      rgba(58,166,255,0.07),
-      transparent 60%
-    ),
-    var(--bg);
+        .hero h1 {
+            font-size: clamp(35px, 8vw, 70px);
+            font-weight: 900;
+            letter-spacing: 4px;
 
-  color:var(--text);
-  font-family:'Inter',sans-serif;
-  overflow-x:hidden;
-  min-height:100vh;
-}
+            color: white;
 
-::selection{
-  background:var(--fire);
-  color:#0A0D12;
-}
+            text-shadow:
+                0 0 5px #ff0000,
+                0 0 15px #ff0000,
+                0 0 35px rgba(255, 0, 0, 0.8);
+        }
 
-.tamil{
-  font-family:'Noto Sans Tamil','Inter',sans-serif;
-}
+        .hero .line {
+            width: 120px;
+            height: 3px;
 
-a{
-  color:inherit;
-}
+            margin: 18px auto;
 
+            background: #ff0000;
 
-/* NAVBAR */
+            box-shadow:
+                0 0 8px #ff0000,
+                0 0 20px #ff0000;
+        }
 
-nav{
-  position:sticky;
-  top:0;
-  z-index:100;
+        .hero p {
+            color: #bbbbbb;
+            font-size: 15px;
+            letter-spacing: 2px;
+        }
 
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+        /* QUOTE */
 
-  padding:14px 22px;
+        .quote-box {
+            position: relative;
 
-  background:rgba(10,13,18,0.85);
+            padding: 30px 25px;
+            margin-bottom: 30px;
 
-  backdrop-filter:blur(10px);
+            text-align: center;
 
-  border-bottom:1px solid var(--line);
-}
+            background: rgba(25, 0, 0, 0.7);
 
-.logo{
-  font-family:'Teko',sans-serif;
-  font-weight:700;
-  font-size:22px;
-  letter-spacing:0.03em;
+            border-left: 3px solid #ff0000;
+            border-right: 3px solid #ff0000;
+            border-radius: 18px;
 
-  background:
-    linear-gradient(
-      90deg,
-      var(--gold),
-      var(--fire)
-    );
+            box-shadow:
+                0 0 15px rgba(255, 0, 0, 0.12);
+        }
 
-  -webkit-background-clip:text;
-  background-clip:text;
+        .quote-box .quote {
+            font-size: 21px;
+            font-weight: bold;
+            line-height: 1.6;
 
-  color:transparent;
+            text-shadow:
+                0 0 5px rgba(255, 0, 0, 0.8);
+        }
 
-  text-transform:uppercase;
-}
+        .quote-box .small {
+            margin-top: 12px;
+            color: #888;
+            font-size: 13px;
+            letter-spacing: 2px;
+        }
 
-.nav-links{
-  display:flex;
-  gap:4px;
+        /* COMMON SECTION */
 
-  font-family:'JetBrains Mono',monospace;
+        .section {
+            margin-top: 30px;
+            padding: 30px 25px;
 
-  font-size:11px;
-}
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(35, 0, 0, 0.75),
+                    rgba(12, 12, 12, 0.9)
+                );
 
-.nav-links a{
-  padding:7px 10px;
+            border: 1px solid rgba(255, 0, 0, 0.35);
+            border-radius: 20px;
 
-  text-decoration:none;
+            box-shadow:
+                0 0 18px rgba(255, 0, 0, 0.12),
+                inset 0 0 25px rgba(255, 0, 0, 0.04);
+        }
 
-  color:var(--text-dim);
+        .section-title {
+            text-align: center;
 
-  border-radius:4px;
+            font-size: 30px;
+            letter-spacing: 3px;
 
-  text-transform:uppercase;
+            margin-bottom: 20px;
 
-  letter-spacing:0.06em;
-}
+            text-shadow:
+                0 0 6px #ff0000,
+                0 0 18px rgba(255, 0, 0, 0.8);
+        }
 
-.nav-links a:hover{
-  color:var(--text);
+        /* SQUAD */
 
-  background:rgba(255,90,31,0.1);
-}
+        .member-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
 
+        .member-card {
+            position: relative;
 
-/* MAIN */
+            padding: 20px 10px;
 
-.wrap{
-  max-width:820px;
-  margin:0 auto;
-  padding:0 22px;
-}
+            text-align: center;
 
-section{
-  padding:48px 0 10px;
-}
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(100, 0, 0, 0.3),
+                    rgba(15, 15, 15, 0.8)
+                );
 
+            border: 1px solid rgba(255, 0, 0, 0.45);
+            border-radius: 13px;
 
-/* HUD */
+            box-shadow:
+                0 0 8px rgba(255, 0, 0, 0.1);
 
-.hud-corner{
-  position:fixed;
+            transition: 0.3s ease;
+        }
 
-  width:24px;
-  height:24px;
+        .member-card::before {
+            content: "";
+            position: absolute;
 
-  z-index:50;
+            left: 15%;
+            right: 15%;
+            top: 0;
 
-  pointer-events:none;
+            height: 1px;
 
-  border-color:rgba(255,90,31,0.5);
+            background: #ff0000;
 
-  border-style:solid;
+            box-shadow: 0 0 8px #ff0000;
+        }
 
-  border-width:0;
-}
+        .member-card:hover {
+            transform: translateY(-5px);
 
-.hud-corner.tl{
-  top:12px;
-  left:12px;
+            border-color: #ff0000;
 
-  border-top-width:2px;
-  border-left-width:2px;
-}
+            box-shadow:
+                0 0 15px rgba(255, 0, 0, 0.4),
+                0 0 30px rgba(255, 0, 0, 0.12);
+        }
 
-.hud-corner.tr{
-  top:12px;
-  right:12px;
+        .member-card span {
+            font-size: 15px;
+            font-weight: bold;
 
-  border-top-width:2px;
-  border-right-width:2px;
-}
+            letter-spacing: 1px;
 
-.hud-corner.bl{
-  bottom:12px;
-  left:12px;
+            color: white;
 
-  border-bottom-width:2px;
-  border-left-width:2px;
-}
+            text-shadow:
+                0 0 5px rgba(255, 0, 0, 0.8);
+        }
 
-.hud-corner.br{
-  bottom:12px;
-  right:12px;
+        /* INTRODUCTION */
 
-  border-bottom-width:2px;
-  border-right-width:2px;
-}
+        .intro-text {
+            color: #cccccc;
 
+            font-size: 16px;
+            line-height: 1.8;
 
-/* HERO */
+            text-align: center;
+        }
 
-.hero{
-  position:relative;
+        /* REELS */
 
-  border:1px solid var(--line);
+        .reel-card {
+            margin-top: 25px;
+            padding: 25px 20px;
 
-  background:
-    linear-gradient(
-      180deg,
-      #171C26,
-      #0F131B
-    );
+            text-align: center;
 
-  border-radius:6px;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(50, 0, 0, 0.75),
+                    rgba(12, 12, 12, 0.9)
+                );
 
-  padding:32px 26px 26px;
+            border: 1px solid rgba(255, 0, 0, 0.45);
+            border-radius: 18px;
 
-  overflow:hidden;
+            box-shadow:
+                0 0 15px rgba(255, 0, 0, 0.15);
+        }
 
-  box-shadow: 0 0 25px rgba(255,0,0,0.35);
- 
-  from{
-    opacity:0;
-    transform:translateY(-18px);
+        .reel-card h3 {
+            font-size: 21px;
+            margin-bottom: 8px;
+
+            text-shadow:
+                0 0 5px #ff0000,
+                0 0 15px rgba(255, 0, 0, 0.7);
+        }
+
+        .reel-card > p {
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        /* UPLOAD */
+
+        .upload-box {
+            margin-top: 20px;
+            padding: 35px 20px;
+
+            text-align: center;
+
+            background: rgba(15, 0, 0, 0.7);
+
+            border: 1px dashed rgba(255, 0, 0, 0.7);
+            border-radius: 18px;
+
+            box-shadow:
+                inset 0 0 25px rgba(255, 0, 0, 0.04);
+        }
+
+        .upload-icon {
+            width: 65px;
+            height: 65px;
+
+            margin: 0 auto 18px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #ff0000;
+
+            font-size: 35px;
+
+            box-shadow:
+                0 0 15px #ff0000,
+                0 0 30px rgba(255, 0, 0, 0.5);
+        }
+
+        .upload-box h3 {
+            font-size: 21px;
+            margin-bottom: 10px;
+
+            text-shadow:
+                0 0 5px #ff0000,
+                0 0 15px rgba(255, 0, 0, 0.7);
+        }
+
+        .upload-box p {
+            color: #aaa;
+            margin-bottom: 22px;
+        }
+
+        .upload-btn {
+            display: inline-block;
+
+            padding: 13px 28px;
+
+            background: #ff0000;
+            color: white;
+
+            border-radius: 30px;
+
+            font-weight: bold;
+            letter-spacing: 1px;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 0 10px #ff0000,
+                0 0 25px rgba(255, 0, 0, 0.4);
+
+            transition: 0.2s;
+        }
+
+        .upload-btn:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 0 15px #ff0000,
+                0 0 35px rgba(255, 0, 0, 0.6);
+        }
+
+        .upload-btn:active {
+            transform: scale(0.96);
+        }
+
+        /* VIDEO PREVIEW */
+
+        #preview {
+            margin-top: 25px;
+        }
+
+        #preview video {
+            width: 100%;
+            max-width: 400px;
+
+            display: block;
+            margin: auto;
+
+            border-radius: 15px;
+
+            border: 1px solid #ff0000;
+
+            box-shadow:
+                0 0 15px rgba(255, 0, 0, 0.4),
+                0 0 30px rgba(255, 0, 0, 0.1);
+        }
+
+        /* FOOTER */
+
+        footer {
+            margin-top: 45px;
+
+            text-align: center;
+
+            color: #666;
+
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        footer span {
+            color: #ff0000;
+
+            text-shadow:
+                0 0 5px #ff0000;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            .container {
+                width: 94%;
+                padding-top: 20px;
+            }
+
+            .hero {
+                padding: 32px 12px;
+            }
+
+            .hero h1 {
+                letter-spacing: 2px;
+            }
+
+            .section {
+                padding: 25px 16px;
+            }
+
+            .member-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quote-box .quote {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 25px;
+            }
+
+        }
+   .intro-tag {
+    margin-top: 22px;
+    padding: 12px 15px;
+
+    text-align: center;
+
+    color: #ff4444;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    border-top: 1px solid rgba(255, 0, 0, 0.25);
+    border-bottom: 1px solid rgba(255, 0, 0, 0.25);
+
+    text-shadow: 0 0 8px #ff0000;
   }
+      
+      .member-card {
+    position: relative;
+    overflow: hidden;
+}
 
-  to{
-    opacity:1;
-    transform:translateY(0);
+.member-card::after {
+    content: "FFK";
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+
+    font-size: 28px;
+    font-weight: 900;
+
+    color: rgba(255, 0, 0, 0.08);
+
+    transform: rotate(-15deg);
   }
+      .reel-post {
+    margin-top: 25px;
+    overflow: hidden;
 
+    background: #090909;
+
+    border: 1px solid rgba(255, 0, 0, 0.45);
+    border-radius: 18px;
+
+    box-shadow:
+        0 0 15px rgba(255, 0, 0, 0.15);
+
+    transition: 0.3s ease;
 }
 
-.hero::before{
-  content:"";
+.reel-post:hover {
+    transform: translateY(-4px);
 
-  position:absolute;
+    border-color: #ff0000;
 
-  inset:0;
-
-  background:
-    repeating-linear-gradient(
-      115deg,
-      rgba(255,90,31,0.05) 0 2px,
-      transparent 2px 26px
-    );
-
-  pointer-events:none;
+    box-shadow:
+        0 0 20px rgba(255, 0, 0, 0.4);
 }
 
+.reel-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-/* HERO TEXT */
+    padding: 15px;
 
-.eyebrow{
-  display:flex;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
 
-  align-items:center;
-
-  gap:8px;
-
-  font-family:'JetBrains Mono',monospace;
-
-  font-size:11px;
-
-  letter-spacing:0.14em;
-
-  color:var(--gold);
-
-  text-transform:uppercase;
-
-  margin-bottom:12px;
+    color: #ff4444;
 }
 
-.eyebrow .dot{
-  width:7px;
-  height:7px;
+.reel-placeholder {
+    height: 380px;
 
-  border-radius:50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-  background:var(--gold);
+    background:
+        radial-gradient(
+            circle,
+            rgba(150, 0, 0, 0.35),
+            #080808 70%
+        );
 
-  box-shadow:
-    0 0 10px var(--gold);
-
-  animation:
-    pulse
-    1.6s
-    infinite
-    ease-in-out;
+    border-top: 1px solid rgba(255, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 0, 0, 0.2);
 }
 
-@keyframes pulse{
+.play-button {
+    width: 75px;
+    height: 75px;
 
-  0%,100%{
-    opacity:1;
-  }
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  50%{
-    opacity:0.35;
-  }
+    padding-left: 5px;
 
+    border-radius: 50%;
+
+    background: #ff0000;
+
+    font-size: 30px;
+
+    box-shadow:
+        0 0 15px #ff0000,
+        0 0 35px rgba(255, 0, 0, 0.5);
 }
 
-.hero-title{
-  font-family:'Teko',sans-serif;
+.reel-placeholder p {
+    margin-top: 18px;
 
-  font-weight:700;
+    color: #777;
 
-  text-transform:uppercase;
-
-  font-size:clamp(36px,10vw,54px);
-
-  line-height:0.95;
-
-  background:
-    linear-gradient(
-      90deg,
-      var(--gold),
-      var(--fire)
-    );
-
-  -webkit-background-clip:text;
-
-  background-clip:text;
-
-  color:transparent;
+    letter-spacing: 3px;
+    font-weight: bold;
 }
 
-.hero-sub{
-  font-size:14px;
-
-  color:var(--text-dim);
-
-  margin-top:10px;
-
-  max-width:52ch;
+.reel-info {
+    padding: 18px;
 }
 
+.reel-info h3 {
+    color: white;
 
-/* SECTION */
+    font-size: 18px;
 
-.zone-divider{
-  display:flex;
-
-  align-items:center;
-
-  gap:14px;
-
-  margin:0 0 20px;
+    text-shadow:
+        0 0 7px #ff0000;
 }
 
-.zone-divider .ring{
-  width:16px;
-  height:16px;
-
-  border-radius:50%;
-
-  border:2px solid var(--safe-zone);
-
-  flex-shrink:0;
-
-  box-shadow:
-    0 0 0 4px rgba(58,166,255,0.08);
-}
-
-.zone-divider .rule{
-  flex:1;
-
-  height:1px;
-
-  background:
-    linear-gradient(
-      90deg,
-      var(--line),
-      transparent
-    );
-}
-
-.zone-label{
-  font-family:'JetBrains Mono',monospace;
-
-  font-size:11px;
-
-  letter-spacing:0.12em;
-
-  color:var(--safe-zone);
-
-  text-transform:uppercase;
-
-  white-space:nowrap;
-}
-
-h2.section-title{
-  font-family:'Teko',sans-serif;
-
-  font-weight:600;
-
-  font-size:clamp(26px,6vw,32px);
-
-  text-transform:uppercase;
-
-  letter-spacing:0.02em;
-
-  color:var(--text);
-
-  margin-bottom:10px;
-}
-
-
-/* SUBMIT */
-
-.submit-card{
-  border:1px solid var(--line);
-
-  background:var(--bg-panel);
-
-  border-radius:6px;
-
-  padding:20px;
-}
-
-.form-row{
-  display:flex;
-
-  flex-direction:column;
-
-  gap:6px;
-
-  margin-bottom:14px;
-}
-
-.form-row label{
-  font-family:'JetBrains Mono',monospace;
-
-  font-size:10.5px;
-
-  letter-spacing:0.1em;
-
-  color:var(--text-dim);
-
-  text-transform:uppercase;
-}
-
-.form-row input{
-
-  background:#0D1017;
-
-  border:1px solid var(--line);
-
-  border-radius:4px;
-
-  padding:11px 12px;
-
-  color:var(--text);
-
-  font-family:'Inter',sans-serif;
-
-  font-size:14px;
-
-  outline:none;
-
-  transition:
-    border-color 0.15s;
-}
-
-.form-row input:focus{
-  border-color:var(--fire);
-}
-
-.submit-btn{
-
-  font-family:'JetBrains Mono',monospace;
-
-  font-size:12px;
-
-  text-transform:uppercase;
-
-  letter-spacing:0.06em;
-
-  background:
-    linear-gradient(
-      90deg,
-      var(--fire),
-      var(--gold)
-    );
-
-  color:#0A0D12;
-
-  font-weight:600;
-
-  border:none;
-
-  border-radius:4px;
-
-  padding:12px 18px;
-
-  cursor:pointer;
-
-  width:100%;
-
-  transition:
-    transform 0.15s,
-    box-shadow 0.15s;
-}
-
-.submit-btn:hover{
-
-  transform:translateY(-1px);
-
-  box-shadow:
-    0 6px 18px rgba(255,90,31,0.3);
-}
-
-.form-note{
-
-  margin-top:10px;
-
-  font-size:11.5px;
-
-  color:var(--text-dim);
-
-  font-family:'JetBrains Mono',monospace;
-
-  line-height:1.6;
-}
-
-.form-msg{
-
-  margin-top:10px;
-
-  font-size:12.5px;
-
-  font-family:'JetBrains Mono',monospace;
-
-  display:none;
-}
-
-.form-msg.show{
-  display:block;
-}
-
-.form-msg.ok{
-  color:var(--gold);
-}
-
-.form-msg.err{
-  color:var(--danger);
-}
-
-
-/* REELS */
-
-.reel-count{
-
-  font-family:'JetBrains Mono',monospace;
-
-  font-size:11px;
-
-  color:var(--text-dim);
-
-  margin-bottom:14px;
-}
-
-.reel-grid{
-
-  display:grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
-  gap:12px;
-}
-
-@media (max-width:520px){
-
-  .reel-grid{
-    grid-template-columns:1fr;
-  }
-
-}
-
-.reel-card{
-
-  border:1px solid var(--line);
-
-  background:var(--bg-panel);
-
-  border-radius:6px;
-
-  overflow:hidden;
-}
-
-.reel-embed{
-
-  width:100%;
-
-  aspect-ratio:9/16;
-
-  background:#000;
-
-  border:none;
-
-  display:block;
-}
-
-.reel-link-card{
-
-  display:flex;
-
-  flex-direction:column;
-
-  align-items:center;
-
-  justify-content:center;
-
-  gap:8px;
-
-  aspect-ratio:9/16;
-
-  text-decoration:none;
-
-  padding:16px;
-
-  text-align:center;
-
-  background:
-    linear-gradient(
-      135deg,
-      #1C222E,
-      #12161F
-    );
-}
-
-.reel-link-card .ico{
-  font-size:26px;
-}
-
-.reel-link-card .lbl{
-
-  font-family:'JetBrains Mono',monospace;
-
-  font-size:11px;
-
-  color:var(--text-dim);
-
-  text-transform:uppercase;
-}
-
-.reel-meta{
-
-  padding:10px 12px;
-
-  border-top:1px solid var(--line);
-}
-
-.reel-fan{
-
-  font-size:13px;
-
-  font-weight:600;
-
-  color:var(--text);
-}
-
-.reel-tag{
-
-  font-family:'JetBrains Mono',monospace;
-
-  font-size:10px;
-
-  color:var(--gold);
-
-  text-transform:uppercase;
-
-  margin-top:2px;
-}
-
-.empty-state{
-
-  border:1px dashed var(--line);
-
-  border-radius:6px;
-
-  padding:30px 16px;
-
-  text-align:center;
-
-  color:var(--text-dim);
-
-  font-size:13px;
-}
-
-.empty-state .tamil{
-
-  display:block;
-
-  margin-top:4px;
-}
-
-
-/* FOOTER */
-
-footer{
-
-  margin-top:56px;
-
-  text-align:center;
-
-  color:var(--text-dim);
-
-  font-size:12.5px;
-
-  padding-bottom:60px;
-}
-
-footer .display{
-
-  font-family:'Teko',sans-serif;
-
-  font-size:20px;
-
-  color:var(--text-dim);
-
-  letter-spacing:0.08em;
-
-  text-transform:uppercase;
-}
-
-</style>
-
+.reel-info p {
+    margin-top: 7px;
+
+    color: #888;
+
+    font-size: 13px;
+          }
+      
+    </style>
 </head>
-
 
 <body>
 
+    <div class="container">
 
-<div class="hud-corner tl"></div>
+        <!-- HERO -->
 
-<div class="hud-corner tr"></div>
+        <section class="hero">
 
-<div class="hud-corner bl"></div>
+            <h1>FFK FAN REELS</h1>
 
-<div class="hud-corner br"></div>
+            <div class="line"></div>
 
+            <p>THE HOME OF FFK MOMENTS ❤️‍🔥</p>
 
-<nav>
-
-  <div class="logo">
-    FFKFanReels
-  </div>
-
-  <div class="nav-links">
-
-    <a href="#submit">
-      Submit
-    </a>
-
-    <a href="#wall">
-      Wall
-    </a>
-
-  </div>
-
-</nav>
+        </section>
 
 
-<div class="wrap">
+        <!-- QUOTE -->
+
+        <section class="quote-box">
+
+            <div class="quote">
+                "Some squads are built with names, but FFK is built with memories, moments, friendship and an energy that can never be replaced. Every moment becomes a story, every story becomes a memory, and every memory keeps the FFK vibe alive. ❤️‍🔥"
+            </div>
+
+            <div class="small">
+                FFK FAN REELS
+            </div>
+
+        </section>
 
 
-<section id="home">
+        <!-- FFK SQUAD -->
 
-  <div class="hero">
+        <section class="section">
 
-    <div class="eyebrow">
+            <h2 class="section-title">
+                FFK SQUAD
+            </h2>
 
-      <span class="dot"></span>
+            <div class="member-grid">
 
-      FAN REELS · SUBMIT & WATCH
+                <div class="member-card">
+                    <span>FFK PRASANTH</span>
+                </div>
 
+                <div class="member-card">
+                    <span>FFK DEEPAK</span>
+                </div>
+
+                <div class="member-card">
+                    <span>FFK FIXXA</span>
+                </div>
+
+                <div class="member-card">
+                    <span>FFK LATHESS</span>
+                </div>
+
+                <div class="member-card">
+                    <span>FFK DHANUSH</span>
+                </div>
+
+                <div class="member-card">
+                    <span>FFK JEEVAN</span>
+                </div>
+
+                <div class="member-card">
+                    <span>FFK GOKUL RAJ</span>
+                </div>
+
+                <div class="member-card">
+                    <span>FFK KAFIL</span>
+                </div>
+
+                <div class="member-card">
+                    <span>FFK IZUMI</span>
+                </div>
+
+                <div class="member-card">
+                    <span>FFK CODEAA</span>
+                </div>
+
+                <div class="member-card">
+                    <span>FFK DARK</span>
+                </div>
+
+                <div class="member-card">
+                    <span>FFK SHARAN</span>
+                </div>
+
+            </div>
+          
+        </section>
+
+
+        <!-- INTRODUCTION -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                INTRODUCTION
+            </h2>
+
+            <p class="intro-text">
+                Welcome to FFK Fan Reels! ❤️‍🔥
+                <br><br>
+
+                This website is dedicated to the FFK squad
+                and their amazing moments.
+                Here you can explore fan reels,
+                memorable moments, squad moments
+                and the journey of FFK.
+                <br><br>
+
+                This is a place created by fans,
+                for fans, to keep the FFK memories
+                and moments alive. 🔥
+            </p>
+          
+            <div class="intro-tag">
+                 FFK • ONE VIBE • ONE FAMILY ❤️‍🔥
+            </div>
+          
+        </section>
+
+      
+        <!-- REELS -->
+
+        <section class="section" id="ffk-reels">
+
+            <h2 class="section-title">
+                FFK REELS
+            </h2>
+
+            <p style="text-align:center; color:#aaa;">
+                FFK moments • FFK edits • FFK memories ❤️‍🔥
+            </p>
+
+
+            <!-- REEL UPLOAD -->
+          
+          <div class="reel-post">
+
+    <div class="reel-top">
+        <span>🔥 FFK FAN REELS</span>
+        <span>❤️‍🔥</span>
     </div>
 
-
-    <div class="hero-title">
-
-      FFKFanReels
-
-    </div>
-
-
-    <div class="hero-sub tamil">
-  Nee FFK Prasanth Fan-ah? Un Reel-a Inga nga Pannu — Un Passion, Un Edit, Un Style-ah FFK Fans Kooda Celebrate Pannattum! 🔥 Ungaloda Mass Edit-um Inga Spotlight-la Theriyattum!
-    </div>Inga</div>
-
-</section>
-
-
-
-<section id="submit">
-
-  <div class="zone-divider">
-
-    <div class="ring"></div>
-
-    <span class="zone-label">
-      Drop Your Reel
-    </span>
-
-    <div class="rule"></div>
-
-  </div>
-
-
-  <h2 class="section-title">
-    Submit a Reel
-  </h2>
-
-
-  <div class="submit-card">
-
-    <form id="reelForm">
-
-
-      <div class="form-row">
-
-        <label for="fanName">
-          Your Name
-        </label>
-
-        <input
-          type="text"
-          id="fanName"
-          placeholder="e.g. Arun_gamer"
-          required
-        >
-
-      </div>
-
-
-
-      <div class="form-row">
-
-        <label for="reelLink">
-          Reel Link (YouTube Shorts / Instagram Reel)
-        </label>
-
-        <input
-          type="url"
-          id="reelLink"
-          placeholder="https://youtube.com/shorts/... or instagram.com/reel/..."
-          required
-        >
-
-      </div>
-
-
-
-      <button
-        type="submit"
-        class="submit-btn"
-      >
-
-        Post to the Wall 🔥
-
-      </button>
-
-
-      <div
-        id="formMsg"
-        class="form-msg"
-      ></div>
-
-
-    </form>
-
-
-    <div class="form-note tamil">
-
-      * Video file direct ah upload panna mudiyathu inga —
-      YouTube Shorts / Instagram Reel link paste pannunga,
-      adhu ipdiye wall la kaamikkum.
-      YouTube links direct ah play aagum,
-      Instagram links watch button ah open aagum.
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<section id="wall">
-
-
-  <div class="zone-divider">
-
-    <div class="ring"></div>
-
-    <span class="zone-label">
-      The Wall
-    </span>
-
-    <div class="rule"></div>
-
-  </div>
-
-
-  <h2 class="section-title">
-    Fan Reels
-  </h2>
-
-
-  <div
-    class="reel-count"
-    id="reelCount"
-  >
-    0 reels posted
-  </div>
-
-
-  <div
-    class="reel-grid"
-    id="reelGrid"
-  ></div>
-
-
-  <div
-    class="empty-state"
-    id="emptyState"
-  >
-
-    No reels yet — be the first!
-
-    <span class="tamil">
-
-      Mele form la un reel link podunga,
-      ithu inga first ah varum 🔥
-
-    </span>
-
-  </div>
-
-
-</section>
-
-
-
-<footer>
-
-  <div class="display">
-
-    — Drop, Post, Repeat —
-
-  </div>
-
-
-  <div style="margin-top:6px;">
-
-    Fan-made reels wall · FFK Prasanth Gaming
-
-  </div>
-
-</footer>
-
-
+    <div class="reel-placeholder">
+    <blockquote
+        class="instagram-media"
+        data-instgrm-permalink="https://www.instagram.com/reel/DbPlQgpKNY5/"
+        data-instgrm-version="14">
+    </blockquote>
 </div>
 
+<script async src="https://www.instagram.com/embed.js"></script>
 
+    <div class="reel-info">
+        <h3>FFK PRASANTH</h3>
+        <p>FFK moments • FFK memories ❤️‍🔥</p>
+    </div>
 
-<script>
-
-const STORAGE_KEY = 'ffk_fan_reels';
-
-
-function getYouTubeId(url){
-
-  const patterns = [
-
-    /(?:youtube\.com\/shorts\/)([a-zA-Z0-9_-]{6,})/,
-
-    /(?:youtube\.com\/watch\?v=)([a-zA-Z0-9_-]{6,})/,
-
-    /(?:youtu\.be\/)([a-zA-Z0-9_-]{6,})/
-
-  ];
-
-
-  for(const p of patterns){
-
-    const m = url.match(p);
-
-    if(m) return m[1];
-
-  }
-
-
-  return null;
-
-}
-
-
-
-function detectPlatform(url){
-
-  if(/youtube\.com|youtu\.be/.test(url))
-    return 'youtube';
-
-  if(/instagram\.com/.test(url))
-    return 'instagram';
-
-  if(/tiktok\.com/.test(url))
-    return 'tiktok';
-
-  if(/facebook\.com|fb\.watch/.test(url))
-    return 'facebook';
-
-  return 'other';
-
-}
-
-
-
-function loadReels(){
-
-  try{
-
-    const raw =
-      localStorage.getItem(STORAGE_KEY);
-
-    return raw
-      ? JSON.parse(raw)
-      : [];
-
-  }
-
-  catch(e){
-
-    return [];
-
-  }
-
-}
-
-
-
-function saveReels(reels){
-
-  try{
-
-    localStorage.setItem(
-      STORAGE_KEY,
-      JSON.stringify(reels)
-    );
-
-  }
-
-  catch(e){}
-
-}
-
-
-
-function platformIcon(p){
-
-  return {
-
-    youtube:'▶',
-
-    instagram:'📷',
-
-    tiktok:'🎵',
-
-    facebook:'👥',
-
-    other:'🔗'
-
-  }[p] || '🔗';
-
-}
-
-
-
-function platformLabel(p){
-
-  return {
-
-    youtube:'YouTube Shorts',
-
-    instagram:'Instagram Reel',
-
-    tiktok:'TikTok',
-
-    facebook:'Facebook',
-
-    other:'Watch Reel'
-
-  }[p] || 'Watch Reel';
-
-}
-
-
-
-function renderReels(){
-
-  const reels = loadReels();
-
-
-  const grid =
-    document.getElementById('reelGrid');
-
-
-  const empty =
-    document.getElementById('emptyState');
-
-
-  const count =
-    document.getElementById('reelCount');
-
-
-  count.textContent =
-    reels.length +
-    (
-      reels.length === 1
-      ? ' reel posted'
-      : ' reels posted'
-    );
-
-
-  grid.innerHTML = '';
-
-
-  if(reels.length === 0){
-
-    empty.style.display = 'block';
-
-    grid.style.display = 'none';
-
-    return;
-
-  }
-
-
-  empty.style.display = 'none';
-
-  grid.style.display = 'grid';
-
-
-  reels
-    .slice()
-    .reverse()
-    .forEach(reel => {
-
-
-      const card =
-        document.createElement('div');
-
-
-      card.className =
-        'reel-card';
-
-
-      let mediaHtml = '';
-
-
-      if(
-        reel.platform === 'youtube' &&
-        reel.ytId
-      ){
-
-        mediaHtml = `
-
-          <iframe
-            class="reel-embed"
-            src="https://www.youtube.com/embed/${reel.ytId}"
-            allowfullscreen
-            loading="lazy">
-          </iframe>
-
-        `;
-
-      }
-
-      else{
-
-        mediaHtml = `
-
-          <a
-            class="reel-link-card"
-            href="${reel.url}"
-            target="_blank"
-            rel="noopener">
-
-            <span class="ico">
-              ${platformIcon(reel.platform)}
-            </span>
-
-            <span class="lbl">
-              ${platformLabel(reel.platform)}
-            </span>
-
-          </a>
-
-        `;
-
-      }
-
-
-      card.innerHTML =
-
-        mediaHtml +
-
-        `
-
-        <div class="reel-meta">
-
-          <div class="reel-fan">
-            ${reel.name}
           </div>
+          
+            <div class="reel-card">
 
-          <div class="reel-tag">
-            ${platformLabel(reel.platform)}
-          </div>
+                <h3>UPLOAD YOUR FFK REEL</h3>
 
-        </div>
+                <p>
+                    Select your reel and preview it here ❤️‍🔥
+                </p>
 
-        `;
+                <div class="upload-box">
 
+                    <div class="upload-icon">
+                        ＋
+                    </div>
 
-      grid.appendChild(card);
+                    <h3>
+                        ADD YOUR REEL
+                    </h3>
 
-    });
+                    <p>
+                        Choose a video from your phone
+                    </p>
 
-}
+                    <label
+                        for="reelUpload"
+                        class="upload-btn">
+                        SELECT REEL
+                    </label>
 
+                    <input
+                        type="file"
+                        id="reelUpload"
+                        accept="video/*"
+                        hidden
+                    >
 
+                    <div id="preview"></div>
 
-document
-  .getElementById('reelForm')
-  .addEventListener(
-    'submit',
-    function(e){
+                </div>
 
-      e.preventDefault();
+            </div>
 
-
-      const nameInput =
-        document.getElementById('fanName');
-
-
-      const linkInput =
-        document.getElementById('reelLink');
-
-
-      const msg =
-        document.getElementById('formMsg');
-
-
-      const name =
-        nameInput.value.trim();
-
-
-      const url =
-        linkInput.value.trim();
+        </section>
 
 
-      let valid = true;
+        <!-- FOOTER -->
+
+        <footer>
+
+            Made with ❤️‍🔥 for
+            <span>FFK Fans</span>
+
+        </footer>
+
+    </div>
 
 
-      try{
+    <!-- JAVASCRIPT -->
 
-        new URL(url);
+    <script>
 
-      }
+        const reelUpload =
+            document.getElementById("reelUpload");
 
-      catch(e){
-
-        valid = false;
-
-      }
+        const preview =
+            document.getElementById("preview");
 
 
-      if(!name || !url || !valid){
+        reelUpload.addEventListener("change", function () {
 
-        msg.textContent =
-          'Sari illa da — name + correct link podunga!';
+            const file = this.files[0];
 
-        msg.className =
-          'form-msg show err';
-
-        return;
-
-      }
+            if (!file) {
+                return;
+            }
 
 
-      const platform =
-        detectPlatform(url);
+            if (!file.type.startsWith("video/")) {
+
+                alert("Please select a video file.");
+
+                this.value = "";
+
+                return;
+            }
 
 
-      const ytId =
-        platform === 'youtube'
-        ? getYouTubeId(url)
-        : null;
+            const videoURL =
+                URL.createObjectURL(file);
 
 
-      const reels =
-        loadReels();
-
-
-      reels.push({
-
-        name,
-        url,
-        platform,
-        ytId,
-        ts:Date.now()
-
-      });
-
-
-      saveReels(reels);
-
-
-      msg.textContent =
-        'Posted! Un reel wall la vandhachu 🔥';
-
-
-      msg.className =
-        'form-msg show ok';
-
-
-      nameInput.value = '';
-
-      linkInput.value = '';
-
-
-      renderReels();
-
-
-      document
-        .getElementById('wall')
-        .scrollIntoView({
-
-          behavior:'smooth',
-
-          block:'start'
+            preview.innerHTML = `
+                <video controls playsinline>
+                    <source
+                        src="${videoURL}"
+                        type="${file.type}">
+                    Your browser does not support video.
+                </video>
+            `;
 
         });
 
-    }
-  );
-
-
-renderReels();
-
-</script>
+    </script>
 
 </body>
-
   </html>
