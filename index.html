@@ -660,6 +660,61 @@
     }
 
         }
+        .memory-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.memory-card {
+    padding: 25px 15px;
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(70, 0, 0, 0.5),
+            rgba(10, 10, 10, 0.9)
+        );
+
+    border: 1px solid rgba(255, 0, 0, 0.4);
+    border-radius: 16px;
+
+    transition: 0.3s ease;
+}
+
+.memory-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #ff0000;
+
+    box-shadow: 0 0 18px rgba(255, 0, 0, 0.35);
+}
+
+.memory-card span {
+    font-size: 35px;
+}
+
+.memory-card h3 {
+    margin-top: 12px;
+    color: white;
+
+    text-shadow: 0 0 7px #ff0000;
+}
+
+.memory-card p {
+    margin-top: 8px;
+    color: #999;
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+    .memory-grid {
+        grid-template-columns: 1fr;
+    }
+        }
+        
     </style>
 </head>
 
@@ -824,18 +879,54 @@
 
         </a>
 
-        <div class="feature-card">
-            <div class="feature-icon">❤️‍🔥</div>
-            <h3>FFK MEMORIES</h3>
-            <p>
-                Every moment, every story,
-                every memory stays forever.
-            </p>
+        <a href="#ffk-memories" class="feature-card">
+
+    <div class="feature-icon">❤️‍🔥</div>
+
+    <h3>FFK MEMORIES</h3>
+
+    <p>
+        Every moment, every story,
+        every memory stays forever.
+    </p>
+
+        </a>
+</section>
+  <!-- FFK MEMORIES -->
+
+<section class="section" id="ffk-memories">
+
+    <h2 class="section-title">
+        FFK MEMORIES
+    </h2>
+
+    <p class="intro-text">
+        Every moment with FFK becomes a memory. ❤️‍🔥
+    </p>
+
+    <div class="memory-grid">
+
+        <div class="memory-card">
+            <span>❤️‍🔥</span>
+            <h3>MEMORIES</h3>
+            <p>Unforgettable FFK moments.</p>
+        </div>
+
+        <div class="memory-card">
+            <span>🔥</span>
+            <h3>MOMENTS</h3>
+            <p>Every moment tells a story.</p>
+        </div>
+
+        <div class="memory-card">
+            <span>♾️</span>
+            <h3>FOREVER</h3>
+            <p>The FFK vibe stays alive.</p>
         </div>
 
     </div>
 
-    </section>
+</section>
       
         <!-- REELS -->
 
