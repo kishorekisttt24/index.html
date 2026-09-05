@@ -882,6 +882,33 @@
     line-height: 1.3;
     text-shadow: 0 0 6px #ff0000;
         }
+        .image-viewer {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.image-viewer img {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.close-image {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+            }
+        
     </style>
 </head>
 
@@ -1073,92 +1100,92 @@
 <div class="memory-photos">
 
     <div class="memory-photo">
-        <img src="IMG_20260905_162837.jpg" alt="FFK Memory 1">
+        <img src="IMG_20260905_162837.jpg" alt="FFK Memory 1" onclick="openImage(this.src)">
         <p>🔥🙏1k reached🙏🔥</p>
     </div>
 
     <div class="memory-photo">
-        <img src="IMG_20260905_163104.jpg" alt="FFK Memory 2">
+        <img src="IMG_20260905_163104.jpg" alt="FFK Memory 2" onclick="openImage(this.src)">
         <p>🔥Brand ana FFK PRASANTH 🔥</p>
     </div>
 
     <div class="memory-photo">
-        <img src="IMG_20260905_163127.jpg" alt="FFK Memory 3">
+        <img src="IMG_20260905_163127.jpg" alt="FFK Memory 3" onclick="openImage(this.src)">
         <p>🔥3k reached moment🔥</p>
     </div>
 
     <div class="memory-photo">
-        <img src="IMG_20260905_163159.jpg" alt="FFK Memory 4">
+        <img src="IMG_20260905_163159.jpg" alt="FFK Memory 4" onclick="openImage(this.src)">
         <p>🔥4k reached moment🔥</p>
     </div>
 
     <div class="memory-photo">
-        <img src="IMG_20260905_163219.jpg" alt="FFK Memory 5">
+        <img src="IMG_20260905_163219.jpg" alt="FFK Memory 5" onclick="openImage(this.src)">
         <p>🔥6k reached moment🔥</p>
     </div>
 
     <div class="memory-photo">
-        <img src="IMG_20260905_163236.jpg" alt="FFK Memory 6">
+        <img src="IMG_20260905_163236.jpg" alt="FFK Memory 6" onclick="openImage(this.src)">
         <p>🔥7k reached moment</p>
     </div>
 
     <div class="memory-photo">
-        <img src="IMG_20260905_163316.jpg" alt="FFK Memory 7">
+        <img src="IMG_20260905_163316.jpg" alt="FFK Memory 7" onclick="openImage(this.src)">
         <p>✨real Avater of FFK✨</p>
     </div>
 
     <div class="memory-photo">
-        <img src="IMG_20260905_163344.jpg" alt="FFK Memory 8">
+        <img src="IMG_20260905_163344.jpg" alt="FFK Memory 8" onclick="openImage(this.src)">
         <p>🔥8k reached moment🔥</p>
     </div>
 
     <div class="memory-photo">
-        <img src="IMG_20260905_163403.jpg" alt="FFK Memory 9">
+        <img src="IMG_20260905_163403.jpg" alt="FFK Memory 9" onclick="openImage(this.src)">
         <p>🔥9k reached moment🔥</p>
     </div>
 
     <div class="memory-photo">
-        <img src="IMG_20260905_163419.jpg" alt="FFK Memory 10">
+        <img src="IMG_20260905_163419.jpg" alt="FFK Memory 10" onclick="openImage(this.src)">
         <p>🔥✨10k reached moment✨🔥</p>
     </div>
 
     <div class="memory-photo">
-        <img src="IMG_20260905_163442.jpg" alt="FFK Memory 11">
+        <img src="IMG_20260905_163442.jpg" alt="FFK Memory 11" onclick="openImage(this.src)">
         <p>🔥🥳50k reached moment🥳🔥</p>
     </div>
 
     <div class="memory-photo">
-        <img src="IMG_20260905_163507.jpg" alt="FFK Memory 12">
+        <img src="IMG_20260905_163507.jpg" alt="FFK Memory 12" onclick="openImage(this.src)">
         <p>🔥🐱Brother channal FFK DEEPAK🐱🔥</p>
     </div>
 
     <div class="memory-photo">
-        <img src="IMG_20260905_163524.jpg" alt="FFK Memory 13">
+        <img src="IMG_20260905_163524.jpg" alt="FFK Memory 13" onclick="openImage(this.src)">
         <p>🔥😱🤯100k reached moment🤯😱🔥</p>
     </div>
 
     <div class="memory-photo">
-        <img src="IMG_20260905_163553.jpg" alt="FFK Memory 14">
+        <img src="IMG_20260905_163553.jpg" alt="FFK Memory 14" onclick="openImage(this.src)">
         <p>🔥🥳200k reached moment🥳🔥</p>
     </div>
 
     <div class="memory-photo">
-        <img src="IMG_20260905_163635.jpg" alt="FFK Memory 15">
+        <img src="IMG_20260905_163635.jpg" alt="FFK Memory 15" onclick="openImage(this.src)">
         <p>🔥🥳300k reached moment🥳🔥</p>
     </div>
 
     <div class="memory-photo">
-        <img src="IMG_20260905_163730.jpg" alt="FFK Memory 16">
+        <img src="IMG_20260905_163730.jpg" alt="FFK Memory 16" onclick="openImage(this.src)">
         <p>🔥🥳😎500k reached moment😎🥳🔥</p>
             </div>
 
     <div class="memory-photo">
-        <img src="IMG_20260905_163805.jpg" alt="FFK Memory 17">
+        <img src="IMG_20260905_163805.jpg" alt="FFK Memory 17" onclick="openImage(this.src)">
         <p>🔥👬The Bloody Brothers👬🔥</p>
     </div>
 
     <div class="memory-photo">
-        <img src="IMG-20260904-WA0006.jpg" alt="FFK Memory 18">
+        <img src="IMG-20260904-WA0006.jpg" alt="FFK Memory 18" onclick="openImage(this.src)">
         <p>🔥👑The Main Attai of FFK👑🔥</p>
     </div>
     <div class="memory-grid">
@@ -1328,8 +1355,24 @@
     </script>
     
 <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-    ↑
+    🔝
 </button>
+    
+    <div id="imageViewer" class="image-viewer" onclick="closeImage()">
+    <span class="close-image">&times;</span>
+    <img id="fullImage" src="" alt="Full Image">
+</div>
+
+<script>
+function openImage(src) {
+    document.getElementById("fullImage").src = src;
+    document.getElementById("imageViewer").style.display = "flex";
+}
+
+function closeImage() {
+    document.getElementById("imageViewer").style.display = "none";
+}
+</script>
     
 </body>
   </html>
