@@ -860,8 +860,13 @@
 @media (max-width: 600px) {
 
     .memory-photos {
-        grid-template-columns: 1fr;
-    }
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.memory-photo img {
+    height: 180px;
+        }
 
     .memory-photo img {
         height: 260px;
