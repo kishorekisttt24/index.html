@@ -7,7 +7,11 @@
     <title>FFK FAN REELS</title>
 
     <style>
-
+        
+   html {
+    scroll-behavior: smooth;
+   }
+        
         * {
             margin: 0;
             padding: 0;
@@ -790,7 +794,40 @@
         margin: 0 0 15px 0;
     }
 
-        }   
+        } 
+        #backToTop {
+    position: fixed;
+    right: 18px;
+    bottom: 20px;
+
+    width: 48px;
+    height: 48px;
+
+    border: 1px solid #ff0000;
+    border-radius: 50%;
+
+    background: #100000;
+    color: white;
+
+    font-size: 24px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 12px #ff0000;
+
+    z-index: 9999;
+
+    transition: 0.3s;
+}
+
+#backToTop:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 0 20px #ff0000;
+        }
     </style>
 </head>
 
@@ -1145,6 +1182,10 @@
         });
 
     </script>
-
+    
+<button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    ↑
+</button>
+    
 </body>
   </html>
