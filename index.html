@@ -828,6 +828,46 @@
     box-shadow:
         0 0 20px #ff0000;
         }
+        .memory-photos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.memory-photo {
+    overflow: hidden;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 0, 0, 0.45);
+
+    box-shadow:
+        0 0 12px rgba(255, 0, 0, 0.15);
+}
+
+.memory-photo img {
+    width: 100%;
+    height: 220px;
+    display: block;
+    object-fit: cover;
+
+    transition: 0.3s ease;
+}
+
+.memory-photo img:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+
+    .memory-photos {
+        grid-template-columns: 1fr;
+    }
+
+    .memory-photo img {
+        height: 260px;
+    }
+
+            }
     </style>
 </head>
 
@@ -1016,7 +1056,21 @@
     <p class="intro-text">
         Every moment with FFK becomes a memory. ❤️‍🔥
     </p>
+<div class="memory-photos">
 
+    <div class="memory-photo">
+        <img src="memory1.jpg" alt="FFK Memory">
+    </div>
+
+    <div class="memory-photo">
+        <img src="memory2.jpg" alt="FFK Memory">
+    </div>
+
+    <div class="memory-photo">
+        <img src="memory3.jpg" alt="FFK Memory">
+    </div>
+
+    </div>
     <div class="memory-grid">
 
         <div class="memory-card">
